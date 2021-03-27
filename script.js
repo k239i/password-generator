@@ -10,6 +10,7 @@ function generate(){
   for(; /^[A-Z0-9\-\+\@\%\!]/.test(base);){
     chars = base.slice(1);
   }
+  document.getElementById("output").innerHTML = base;
 };
 function genpass(length, options = { useSymbol: true }){
   var pattern;
