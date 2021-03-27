@@ -1,9 +1,9 @@
 function generate(){
   const button = document.getElementById("useSymbol");
   const length = Number(document.getElementById("length").value);
-  if(!Number.isNaN(length)) length = random(8,31);
+  if(Number.isNaN(length)) length = random(8,31);
   let options = {
-    useSymbol: button.checked;
+    useSymbol: !!(button.checked)
   };
   let chars = genpass(length, options);
   document.getElementById("output").innerHTML = String(chars);
