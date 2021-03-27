@@ -8,13 +8,16 @@ function generate(){
   };
   let chars = genpass(length, options);
   document.getElementById("output").innerHTML = String(chars);
+  let dofor = 0;
   for(; /^[A-Z0-9\-\+\@\%\!]/.test(chars);){
-    chars = chars.slice(1) + genpass(1, options);
+    dofor += 1;
+    chars = chars.slice(1);
   }
+  chars += genpass(dofor, options);
   document.getElementById("output").innerHTML = String(chars);
 };
 function genpass(length, options){
-  var pattern;
+  let pattern;
   options.useSymbol ? pattern = /[a-zA-Z0-9\-\+\@\%\!]/ : pattern = /[a-zA-Z0-9]/;
   return Array.apply(null, {'length': length})
   .map(function(){
