@@ -4,13 +4,9 @@ body {
 textarea {
   background: #222426;
 }
-usage {
+p h1{
   font-size: 75%;
   color: #08e8df;
-}
-thth {
-  font-size: 250%;
-  color: #114514;
 }
 input {
   background: url("IMG_3791.png");
