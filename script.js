@@ -1,15 +1,16 @@
 function generate(){
-  const button = document.getElementsByName("useSymbol");
-  const length = Number(document.getElementsByName("length")[0].value);
+  const button = document.getElementById("useSymbol");
+  const length = Number(document.getElementById("length").value);
   if(!Number.isNaN(length)) length = random(8,31);
   let options = {
-    useSymbol: button[0].checked;
+    useSymbol: button.checked;
   };
   let chars = genpass(length, options);
-  for(; /^[A-Z0-9\-\+\@\%\!]/.test(base);){
-    chars = base.slice(1);
+  document.getElementById("output").innerHTML = String(chars);
+  for(; /^[A-Z0-9\-\+\@\%\!]/.test(chars);){
+    chars = chars.slice(1);
   }
-  document.getElementsByName("output")[0].innerHTML = base;
+  document.getElementById("output").innerHTML = String(chars);
 };
 function genpass(length, options = { useSymbol: true }){
   var pattern;
