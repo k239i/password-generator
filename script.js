@@ -31,7 +31,11 @@ function genpass(length, options){
   }, this)
   .join('');  
 };
-
+function copypass(){
+  const _textarea = document.getElementById("output");
+  _textarea.select();
+  document.execCommand("copy");
+};
 function random(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
