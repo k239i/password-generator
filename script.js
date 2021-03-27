@@ -13,9 +13,9 @@ function generate(){
   }
   document.getElementById("output").innerHTML = String(chars);
 };
-function genpass(length, options = { useSymbol: true }){
+function genpass(length, options){
   var pattern;
-  options.useSymbol ? pattern = /[a-zA-Z0-9]/ : pattern = /[a-zA-Z0-9\-\+\@\%\!]/;
+  options.useSymbol ? pattern = /[a-zA-Z0-9\-\+\@\%\!]/ : pattern = /[a-zA-Z0-9]/;
   return Array.apply(null, {'length': length})
   .map(function(){
     var result;
