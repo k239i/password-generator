@@ -3,7 +3,7 @@ function generate(){
   const length = Number(document.getElementById("length").value);
   if(Number.isNaN(length)) length = random(8,31);
   let options = {
-    useSymbol: button.check
+    useSymbol: button.checked
   };
   let chars = genpass(length, options);
   document.getElementById("output").innerHTML = String(chars);
