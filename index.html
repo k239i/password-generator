@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ja-jp">
+<head>
+  <title>すえきゅーどっとねっと</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <noscript>
+    <p>JavaScriptを有効にしろハゲ</p>
+  </noscript>
+  <script src="script.js"></script>
+  <h1>パスワード生成機</h1><br>
+  <p><a href="https://github.com/k239i/password-generator" target="_blank" rel="noopener noreferrer">ソースコード</a>を見てわかる通り情報は外部へ送信されません。</p>
+  <br>
+  <input type="checkbox" name="useSymbol" value="useSymbol"> 記号を使用する
+  <textarea name="length" value="1" cols="25" rows=2 maxlength="64">パスワードの長さを指定してください。例: 15</textarea>
+  <br> <input type="button" value="生成する" onclick="generate()">
+</body>
+</html>
