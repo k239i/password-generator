@@ -1,6 +1,6 @@
 function generate(){
   const button = document.getElementsByName("useSymbol");
-  const length = Number(document.getElementById("length").value);
+  const length = Number(document.getElementsByName("length")[0].value);
   if(!Number.isNaN(length)) length = random(8,31);
   let options = {
     useSymbol: button[0].checked;
