@@ -1,10 +1,10 @@
-const button = document.getElementById("useSymbol");
-button.checked = true;
+let uss_button = document.getElementById("useSymbol");
+uss_button.checked = true;
 function generate(){
   const length = Number(document.getElementById("length").value);
   if(Number.isNaN(length)) length = random(8,31);
   let options = {
-    useSymbol: button.checked
+    useSymbol: uss_button.checked
   };
   let chars = genpass(length, options);
   document.getElementById("output").innerHTML = String(chars);
