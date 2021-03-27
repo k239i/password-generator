@@ -1,8 +1,11 @@
 let uss_button = document.getElementById("useSymbol");
 uss_button.checked = true;
 function generate(){
-  const length = Number(document.getElementById("length").value);
-  if(Number.isNaN(length)) length = random(8,31);
+  let length = Number(document.getElementById("length").value);
+  if(Number.isNaN(length)){
+    length = random(8, 31);
+    alert('パスワードの長さが無効ですお寿司');
+  };
   let options = {
     useSymbol: uss_button.checked
   };
