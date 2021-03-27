@@ -1,8 +1,7 @@
 function generate(){
   const button = document.getElementsByName("useSymbol");
   const length = Number(document.getElementById("length").value);
-  if(!Number.isInterger(length)) return alert('おっと！パスワードの長さが無効です… 数字を入力してください');
-  if(!length) length = random(8,31);
+  if(!Number.isNaN(length)) length = random(8,31);
   let options = {
     useSymbol: button[0].checked;
   };
@@ -10,7 +9,7 @@ function generate(){
   for(; /^[A-Z0-9\-\+\@\%\!]/.test(base);){
     chars = base.slice(1);
   }
-  document.getElementById("output").innerHTML = base;
+  document.getElementsByName("output")[0].innerHTML = base;
 };
 function genpass(length, options = { useSymbol: true }){
   var pattern;
