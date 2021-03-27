@@ -1,5 +1,6 @@
+const button = document.getElementById("useSymbol");
+button.checked = true;
 function generate(){
-  const button = document.getElementById("useSymbol");
   const length = Number(document.getElementById("length").value);
   if(Number.isNaN(length)) length = random(8,31);
   let options = {
@@ -8,7 +9,7 @@ function generate(){
   let chars = genpass(length, options);
   document.getElementById("output").innerHTML = String(chars);
   for(; /^[A-Z0-9\-\+\@\%\!]/.test(chars);){
-    chars = chars.slice(1);
+    chars = chars.slice(1) + genpass(1, options);
   }
   document.getElementById("output").innerHTML = String(chars);
 };
