@@ -3,7 +3,7 @@ let uss_button = document.getElementById("useSymbol");
 uss_button.checked = true;
 function generate(){
   let length = Number(document.getElementById("length").value);
-  if(Number.isNaN(length)){
+  if(length !== length){
     length = random(8, 31);
     alert('パスワードの長さが無効ですお寿司');
   };
