@@ -4,6 +4,7 @@
   <title>Sueqk.js</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width" />
+  <meta property="og:title" content="パスワード生成機" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -14,6 +15,7 @@
   <p><a href="https://github.com/k239i/password-generator" target="_blank" rel="noopener noreferrer">ソースコード</a>を見てわかる通り情報は外部へ送信されません。</p>
   <br>
   <input type="checkbox" name="useSymbol" id="useSymbol" value="useSymbol"> 記号を使用する <br>
+  <input type="checkbox" name="multi" id="multi" value="multi"> 複数生成する <br>
   <textarea name="length" id="length" placeholder="パスワードの長さを指定してください。例: 15" cols="50" rows=2 maxlength="32"></textarea><br>
   <textarea readonly id="output" name="output" placeholder="結果" cols="500" rows=20></textarea><br>
   <script src="script.js"></script>
