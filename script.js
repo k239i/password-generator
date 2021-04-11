@@ -1,5 +1,6 @@
 let uss_button = document.getElementById("useSymbol");
 // にっこり
+let mlt_button = document.getElementById("multi");
 uss_button.checked = true;
 function generate(){
   let length = Number(document.getElementById("length").value);
