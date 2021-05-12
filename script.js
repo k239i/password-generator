@@ -1,5 +1,4 @@
 let uss_button = document.getElementById("useSymbol");
-// にっこり
 let mlt_button = document.getElementById("multi");
 uss_button.checked = true;
 function generate(){
@@ -11,9 +10,17 @@ function generate(){
   let options = {
     useSymbol: uss_button.checked
   };
-  let chars = genpass(length, options);
+  let pow = 1;
+  if(length >= 2**32) {
+    pow = Math.floor(length / 2**32);
+  };
+  let chars;
+  for(let i = 0; i < pow; i++){
+    if(pow === 1) chars = genpass(length, options);
+    else chars += genpass(2**32, options);
+  };
   document.getElementById("output").innerHTML = String(chars);
-  let dofor = 0;
+  let dofor = 0; 
   for(; /^[A-Z0-9\-\+\@\%\!]/.test(chars);){
     dofor += 1;
     chars = chars.slice(1);
@@ -24,7 +31,7 @@ function generate(){
 function genpass(length, options){
   let pattern;
   options.useSymbol ? pattern = /[a-zA-Z0-9\-\+\@\%\!]/ : pattern = /[a-zA-Z0-9]/;
-  return Array.apply(null, {'length': length})
+  return Array(length)
   .map(function(){
     var result;
     while(true) {
@@ -36,11 +43,13 @@ function genpass(length, options){
   }, this)
   .join('');  
 };
+
 function copypass(){
   const _textarea = document.getElementById("output");
   _textarea.select();
   document.execCommand("copy");
 };
+
 function random(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
