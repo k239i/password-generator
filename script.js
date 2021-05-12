@@ -17,7 +17,7 @@ function generate(){
   let chars;
   for(let i = 0; i < pow; i++){
     if(pow === 1) chars = genpass(length, options);
-    else chars += genpass(2**32, options);
+    else chars += genpass(2**32 -1, options);
   };
   document.getElementById("output").innerHTML = String(chars);
   let dofor = 0; 
