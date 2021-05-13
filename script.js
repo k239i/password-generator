@@ -19,6 +19,7 @@ function generate(){
     if(pow === 1) chars = genpass(length, options);
     else chars += genpass(2**32 -1, options);
   };
+  if(!chars) chars = genpass(length, options);
   document.getElementById("output").innerHTML = String(chars);
   let dofor = 0; 
   while(/^[A-Z0-9\-\+\@\%\!]/.test(chars)){
