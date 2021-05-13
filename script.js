@@ -2,6 +2,7 @@ let uss_button = document.getElementById("useSymbol");
 let mlt_button = document.getElementById("multi");
 uss_button.checked = true;
 function generate(){
+  console.log(new Date())
   let length = Number(document.getElementById("length").value);
   if(length !== length || typeof length !== 'number'){
     length = random(8, 31);
