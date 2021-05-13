@@ -14,13 +14,12 @@ function generate(){
   if(length >= 2**32 -1) {
     pow = Math.floor(length / 2**32 -1);
   };
-  let chars;
-  for(let i = 0; i > pow; i++){
+  let chars = '';
+  for(let i = 0; i < pow; i++){
     if(pow === 1) chars = genpass(length, options);
     else chars += genpass(2**32 -1, options);
   };
-  if(!chars) chars = genpass(length, options);
-  document.getElementById("output").innerHTML = String(chars);
+  //if(!chars) chars = genpass(length, options);
   let dofor = 0; 
   while(/^[A-Z0-9\-\+\@\%\!]/.test(chars)){
     dofor += 1;
