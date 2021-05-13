@@ -3,7 +3,7 @@ let mlt_button = document.getElementById("multi");
 uss_button.checked = true;
 function generate(){
   let length = Number(document.getElementById("length").value);
-  if(length !== length){
+  if(length !== length || typeof length !== 'number'){
     length = random(8, 31);
     alert('パスワードの長さが無効ですお寿司');
   };
@@ -21,7 +21,7 @@ function generate(){
   };
   document.getElementById("output").innerHTML = String(chars);
   let dofor = 0; 
-  for(; /^[A-Z0-9\-\+\@\%\!]/.test(chars);){
+  while(/^[A-Z0-9\-\+\@\%\!]/.test(chars)){
     dofor += 1;
     chars = chars.slice(1);
   }
@@ -32,6 +32,7 @@ function genpass(length, options){
   let pattern;
   options.useSymbol ? pattern = /[a-zA-Z0-9\-\+\@\%\!]/ : pattern = /[a-zA-Z0-9]/;
   return Array(length)
+  .fill(null)
   .map(function(){
     var result;
     while(true) {
