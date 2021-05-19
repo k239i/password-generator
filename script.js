@@ -1,6 +1,7 @@
 let uss_button = document.getElementById("useSymbol");
 let mlt_button = document.getElementById("multi");
 uss_button.checked = true;
+
 function generate(){
   let length = Number(document.getElementById("length").value);
   if(length !== length || typeof length !== 'number'){
@@ -10,7 +11,7 @@ function generate(){
   let options = {
     useSymbol: uss_button.checked
   };
-  let chars = '';
+  let chars = genpass(length, options);
   let dofor = 0; 
   while(/^[A-Z0-9\-\+\@\%\!]/.test(chars)){
     dofor += 1;
@@ -19,6 +20,7 @@ function generate(){
   chars += genpass(dofor, options);
   document.getElementById("output").innerHTML = String(chars);
 };
+
 function genpass(length, options){
   let pattern;
   options.useSymbol ? pattern = /[a-zA-Z0-9\-\+\@\%\!]/ : pattern = /[a-zA-Z0-9]/;
