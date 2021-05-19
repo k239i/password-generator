@@ -2,7 +2,6 @@ let uss_button = document.getElementById("useSymbol");
 let mlt_button = document.getElementById("multi");
 uss_button.checked = true;
 function generate(){
-  console.log(new Date())
   let length = Number(document.getElementById("length").value);
   if(length !== length || typeof length !== 'number'){
     length = random(8, 31);
@@ -11,17 +10,7 @@ function generate(){
   let options = {
     useSymbol: uss_button.checked
   };
-  let pow = 1;
-  if(length >= 2**32 -1) {
-    pow = Math.floor(length / 2**32 -1);
-  };
   let chars = '';
-  for(let i = 0; i < pow; i++){
-    if(pow === 1 && i === pow-1) {
-      chars = genpass(length, options);
-     } else chars += genpass(2**32 -1, options);
-  };
-  //if(!chars) chars = genpass(length, options);
   let dofor = 0; 
   while(/^[A-Z0-9\-\+\@\%\!]/.test(chars)){
     dofor += 1;
@@ -33,7 +22,8 @@ function generate(){
 function genpass(length, options){
   let pattern;
   options.useSymbol ? pattern = /[a-zA-Z0-9\-\+\@\%\!]/ : pattern = /[a-zA-Z0-9]/;
-  return Array(length)
+  if(length >= 2**32) length = 2**32 -1;
+  return new Array(length)
   .fill(null)
   .map(function(){
     var result;
